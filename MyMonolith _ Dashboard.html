@@ -76,7 +76,6 @@
             ]
         };
 
-
         function bind (obj, app, opts){
 
             if(opts !== undefined){
@@ -109,11 +108,7 @@
             constructor(data, node) {
                 this.node = node;
                 this.rows = bind([], this, { push: (app, el) => new AppRow(app,el) });
-
-                for(let row of data.rows){
-                    this.rows.push(row)
-                }
-
+                this.rows.push(... data.rows);
                 return bind(this, this)
             }
 
@@ -125,22 +120,25 @@
                 return out;
             }
 
-            render() {
-                this.node.innerHTML = `
-                  ${this.renderRows()}
-                `;
+            render(){
+                if (this.timerId) {
+                    clearTimeout(this.timerId);
+                }
+                this.timerId = setTimeout(() => {
+                    this.node.innerHTML = `
+                      ${this.renderRows()}
+                    `;
+                    this.timerId = null;
+                }, 1);
             }
+
         }
 
         class AppRow {
 
             constructor(app, data) {
                 this.tables = bind([], app, { push: (app, el) => new Table(app,el) });
-
-                for(let table of data.tables){
-                    this.tables.push(table)
-                }
-
+                this.tables.push(...data.tables);
                 return bind(this, app);
             }
 
@@ -168,15 +166,8 @@
                 this.name = table.name;
                 this.headers = bind([], app, { push: (app, el) => new TableHeader(app,el) });
                 this.rows = bind([], app, { push: (app, el) => new TableRow(app,el, this.rows.length +1) });
-
-                for(let header of table.headers){
-                    this.headers.push(header)
-                }
-
-                for(let row of table.rows){
-                    this.rows.push(row)
-                }
-
+                this.headers.push(...table.headers);
+                this.rows.push(...table.rows);
                 return bind(this, app);
             }
 
