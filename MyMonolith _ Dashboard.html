@@ -12,10 +12,10 @@
         const model = {
             rows : [
                 {
-                    tables: [
+                    columns: [
                         {
                             name: "MyMonolith UK",
-                            className: "col-md-6",
+                            size: "md-6",
                             headers: [
                                 {name: "Store Name", width: "101px"},
                                 {name: "Today Sales", width: "65px"}
@@ -29,7 +29,7 @@
                         },
                         {
                             name: "MyMonolith UK",
-                            className: "col-md-6",
+                            size: "md-6",
                             headers: [
                                 {name: "Store Name", width: "101px"},
                                 {name: "Today Sales", width: "65px"}
@@ -44,10 +44,10 @@
                     ]
                 },
                 {
-                    tables: [
+                    columns: [
                         {
                             name: "MyMonolith UK",
-                            className: "col-md-6",
+                            size: "md-6",
                             headers: [
                                 {name: "Store Name", width: "101px"},
                                 {name: "Today Sales", width: "65px"}
@@ -61,7 +61,7 @@
                         },
                         {
                             name: "MyMonolith UK",
-                            className: "col-md-6",
+                            size: "md-6",
                             headers: [
                                 {name: "Store Name", width: "101px"},
                                 {name: "Today Sales", width: "65px"}
@@ -131,7 +131,7 @@
                       ${this.data.render()}
                     `;
                     this.timerId = null;
-                }, 1);
+                }, 100);
             }
         }
 
@@ -153,25 +153,25 @@
 
             constructor(c, data) {
                 
-                this.tables  = new Collection(c, Table, ...data.tables);
+                this.columns  = new Collection(c, BootstrapCol, ...data.columns);
                 return bind(c, this);
             }
 
             render() {
                 return `
                   <div class="row">
-                    ${this.tables.render()}
+                    ${this.columns.render()}
                  </div>
                 `;
             }
         }
 
-        class Table {
+        class BootstrapCol {
 
-            constructor(c, data){
-                
-                this.className = data.className;
+            constructor(c, data) {
+                this.size = data.size;
                 this.name = data.name;
+                this.icon = "fa fa-opencart font-dark";
                 this.headers = new Collection(c, TableHeader, ...data.headers);
                 this.rows = new Collection(c, TableRow, ...data.rows);
                 return bind(c, this);
@@ -179,11 +179,11 @@
 
             render(){
                 return `
-                <div class="${this.className}">
+                <div class="col-${this.size}">
                     <div class="portlet light bordered">
                         <div class="portlet-title">
                             <div class="caption font-dark">
-                                <i class="fa fa-opencart font-dark"></i>
+                                <i class="${this.icon}"></i>
                                 <span class="caption-subject bold uppercase">${this.name}</span>
                             </div>
                         </div>
