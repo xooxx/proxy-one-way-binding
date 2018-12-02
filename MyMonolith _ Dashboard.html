@@ -88,6 +88,14 @@
                         }
                         return this.length;
                     };
+
+                    obj.render = function(){
+                        let out = "";
+                        for (let o of obj) {
+                            out = out.concat(o.render());
+                        }
+                        return out;
+                    };
                 }
 
             }
@@ -112,21 +120,13 @@
                 return bind(this, this)
             }
 
-            renderRows() {
-                let out = "";
-                for (let row of this.rows) {
-                    out = out.concat(row.render());
-                }
-                return out;
-            }
-
             render(){
                 if (this.timerId) {
                     clearTimeout(this.timerId);
                 }
                 this.timerId = setTimeout(() => {
                     this.node.innerHTML = `
-                      ${this.renderRows()}
+                      ${this.rows.render()}
                     `;
                     this.timerId = null;
                 }, 1);
@@ -142,18 +142,10 @@
                 return bind(this, app);
             }
 
-            renderTables() {
-                let out = "";
-                for (let table of this.tables) {
-                    out = out.concat(table.render());
-                }
-                return out;
-            }
-
             render() {
                 return `
                   <div class="row">
-                    ${this.renderTables()}
+                    ${this.tables.render()}
                  </div>
                 `;
             }
@@ -171,22 +163,6 @@
                 return bind(this, app);
             }
 
-            renderTableHeaders(){
-                let out = "";
-                for (let header of this.headers) {
-                    out = out.concat(header.render());
-                }
-                return out;
-            }
-
-            renderTableRows(){
-                let out = "";
-                for (let row of this.rows) {
-                    out = out.concat(row.render());
-                }
-                return out;
-            }
-
             render(){
                 return `
                 <div class="${this.className}">
@@ -200,14 +176,14 @@
                         <div class="portlet-body">
                             <div class="dataTables_wrapper no-footer">
                                 <div class="table-scrollable">
-                                    <table class="table table-striped table-bordered table-hover dt-responsive dataTable no-footer" width="100%" id="sample_1" role="grid" style="width: 100%;">
+                                    <table class="table table-striped table-bordered dt-responsive" width="100%" role="grid" style="width: 100%;">
                                         <thead>
                                             <tr role="row">
-                                                ${this.renderTableHeaders()}
+                                                ${this.headers.render()}
                                             </tr>
                                         </thead>
                                         <tbody>
-                                               ${this.renderTableRows()}
+                                               ${this.rows.render()}
                                         </tbody>
                                     </table>
                                 </div>
@@ -259,4 +235,4 @@
     </script>
 
 
-</main><div class="theme-panel hidden-xs hidden-sm"><div class="toggler lock"></div></div><div class="gridster ready ui-droppable"></div></div><span class="gs-resize-handle gs-resize-handle-both"></span></li></div><span class="gs-resize-handle gs-resize-handle-both"></span></li></ul></div></div></div></div><div class="page-quick-sidebar-wrapper"> <iframe id="chat-app" src="./MyMonolith _ Dashboard_files/ng2.html" frameborder="0" border="0" cellspacing="0"></iframe> <div id="f-cover" style="width: 0; height: 0; z-index: 0; position: absolute;"></div><div id="l-f" style=" height: 70vh; width: 10px; position: absolute; right: 366px; cursor: w-resize; z-index: 2; " class="ui-draggable ui-draggable-handle"></div><div id="b-f" style=" top: 70vh; width: 366px; position: absolute; height: 10px; right: 0; cursor: s-resize; z-index: 2; " class="ui-draggable ui-draggable-handle"></div><div id="l-b-c-f" style=" top: 70vh; right: 366px; position: absolute; width: 15px; height: 15px; margin-top: -5px; cursor: sw-resize; z-index: 2; " class="ui-draggable ui-draggable-handle"></div></div></div></div><nav class="quick-nav" style="display: none;"> <a class="quick-nav-trigger" href="javascript:void(0);"> <span aria-hidden="true"></span> </a> <ul> <li class="" style="display: none;"> <a href="javascript:void(0);" class=""> <span>Example</span> <i class="icon"></i> </a> </li></ul> <span aria-hidden="true" class="quick-nav-bg"></span></nav><div class="quick-nav-overlay"></div><div class="modal fade" id="support_modal" role="basic" aria-hidden="true"><div class="page-loading page-loading-boxed"><img src="./MyMonolith _ Dashboard_files/input-spinner.gif" alt="" class="loading"><span>&nbsp;&nbsp;Loading... </span></div><div class="modal-dialog"><div class="modal-content"></div></div></div><div class="modal" id="quick_modal" role="dialog" aria-hidden="true"> <div class="page-loading page-loading-boxed"> <img src="./MyMonolith _ Dashboard_files/input-spinner.gif" alt="" class="loading"> <span>Loading... </span> </div><div class="modal-dialog"> <div class="modal-content"> </div></div></div><div class="page-footer"> <div class="page-footer-inner">2018 MyMonolith © - <a href="http://www.nikicloud.com/">NikiCloud ®</a> - <a href="https://my.monolith-gruppe.com/legal/privacy_policy">Privacy Policy</a> </div><div class="scroll-to-top"> <i class="icon-arrow-up"></i> </div></div></body></html>
+</main><div class="gridster ready ui-droppable"></div></div><span class="gs-resize-handle gs-resize-handle-both"></span></li></div><span class="gs-resize-handle gs-resize-handle-both"></span></li></ul></div></div></div></div><div class="page-quick-sidebar-wrapper"> <iframe id="chat-app" src="./MyMonolith _ Dashboard_files/ng2.html" frameborder="0" border="0" cellspacing="0"></iframe> <div id="f-cover" style="width: 0; height: 0; z-index: 0; position: absolute;"></div><div id="l-f" style=" height: 70vh; width: 10px; position: absolute; right: 366px; cursor: w-resize; z-index: 2; " class="ui-draggable ui-draggable-handle"></div><div id="b-f" style=" top: 70vh; width: 366px; position: absolute; height: 10px; right: 0; cursor: s-resize; z-index: 2; " class="ui-draggable ui-draggable-handle"></div><div id="l-b-c-f" style=" top: 70vh; right: 366px; position: absolute; width: 15px; height: 15px; margin-top: -5px; cursor: sw-resize; z-index: 2; " class="ui-draggable ui-draggable-handle"></div></div></div></div><nav class="quick-nav" style="display: none;"> <a class="quick-nav-trigger" href="javascript:void(0);"> <span aria-hidden="true"></span> </a> <ul> <li class="" style="display: none;"> <a href="javascript:void(0);" class=""> <span>Example</span> <i class="icon"></i> </a> </li></ul> <span aria-hidden="true" class="quick-nav-bg"></span></nav><div class="quick-nav-overlay"></div><div class="modal fade" id="support_modal" role="basic" aria-hidden="true"><div class="page-loading page-loading-boxed"><img src="./MyMonolith _ Dashboard_files/input-spinner.gif" alt="" class="loading"><span>&nbsp;&nbsp;Loading... </span></div><div class="modal-dialog"><div class="modal-content"></div></div></div><div class="modal" id="quick_modal" role="dialog" aria-hidden="true"> <div class="page-loading page-loading-boxed"> <img src="./MyMonolith _ Dashboard_files/input-spinner.gif" alt="" class="loading"> <span>Loading... </span> </div><div class="modal-dialog"> <div class="modal-content"> </div></div></div><div class="page-footer"> <div class="page-footer-inner">2018 MyMonolith © - <a href="http://www.nikicloud.com/">NikiCloud ®</a> - <a href="https://my.monolith-gruppe.com/legal/privacy_policy">Privacy Policy</a> </div><div class="scroll-to-top"> <i class="icon-arrow-up"></i> </div></div></body></html>
