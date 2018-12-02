@@ -7,6 +7,8 @@
 
     new function(){
 
+        /* Simple data model */
+
         const model = {
             rows : [
                 {
@@ -76,70 +78,83 @@
             ]
         };
 
-        function bind (obj, app, opts){
+        /* One way binding */
 
-            if(opts !== undefined){
-
-                if(opts.push !== undefined) {
-
-                    obj.push = function () {
-                        for (let i = 0, l = arguments.length; i < l; i++) {
-                            this[this.length] = opts.push(app, arguments[i]);
-                        }
-                        return this.length;
-                    };
-
-                    obj.render = function(){
-                        let out = "";
-                        for (let o of obj) {
-                            out = out.concat(o.render());
-                        }
-                        return out;
-                    };
-                }
-
-            }
-
-            return new Proxy(obj, {
+        function bind(c, elem) {
+            return new Proxy(elem, {
                 set: function (obj, prop, value) {
                     obj[prop] = value;
-                    app.render();
+                    c.present();
                     return true;
                 },
-                get: function(obj, prop) {
+                get: function (obj, prop) {
                     return obj[prop];
                 }
             });
         }
-        class App {
+        
+        class Collection {
+            constructor(c, Type, ...elem) {
+                const arr = [];
+                arr.push = function () {
+                    for (let i = 0, l = arguments.length; i < l; i++) {
+                        this[this.length] = new Type(c, arguments[i], i +1);
+                    }
+                    return this.length;
+                };
+                arr.render = function () {
+                    let out = "";
+                    for (let o of arr) {
+                        out = out.concat(o.render());
+                    }
+                    return out;
+                };
 
-            constructor(data, node) {
+                arr.push(...elem);
+                return bind(c, arr);
+            }
+        }
+
+        class Component {
+            constructor(Type, node, data) {
+                this.data = new Type(this,data);
                 this.node = node;
-                this.rows = bind([], this, { push: (app, el) => new AppRow(app,el) });
-                this.rows.push(... data.rows);
-                return bind(this, this)
+                this.present();
             }
 
-            render(){
+            present() {
                 if (this.timerId) {
                     clearTimeout(this.timerId);
                 }
                 this.timerId = setTimeout(() => {
                     this.node.innerHTML = `
-                      ${this.rows.render()}
+                      ${this.data.render()}
                     `;
                     this.timerId = null;
                 }, 1);
             }
-
         }
 
-        class AppRow {
+        /* Components */
+        class Bootstrap {
+            constructor(c, data) {
+                this.rows = new Collection(c, BootstrapRow, ...data.rows);
+                return bind(c, this);
+            }
 
-            constructor(app, data) {
-                this.tables = bind([], app, { push: (app, el) => new Table(app,el) });
-                this.tables.push(...data.tables);
-                return bind(this, app);
+            render(){
+                return `
+                  ${this.rows.render()}
+                `;
+            }
+        }
+
+        class BootstrapRow {
+
+            constructor(c, data) {
+                
+                this.tables  = new Collection(c, Table, ...data.tables);
+                return bind(c, this);
             }
 
             render() {
@@ -153,14 +168,13 @@
 
         class Table {
 
-            constructor(app, table){
-                this.className = table.className;
-                this.name = table.name;
-                this.headers = bind([], app, { push: (app, el) => new TableHeader(app,el) });
-                this.rows = bind([], app, { push: (app, el) => new TableRow(app,el, this.rows.length +1) });
-                this.headers.push(...table.headers);
-                this.rows.push(...table.rows);
-                return bind(this, app);
+            constructor(c, data){
+                
+                this.className = data.className;
+                this.name = data.name;
+                this.headers = new Collection(c, TableHeader, ...data.headers);
+                this.rows = new Collection(c, TableRow, ...data.rows);
+                return bind(c, this);
             }
 
             render(){
@@ -196,9 +210,10 @@
         }
 
         class TableHeader {
-            constructor(app, header){
-                this.name = header.name;
-                return bind(this, app);
+            constructor(c, data){
+                
+                this.name = data.name;
+                return bind(c, this);
             }
 
             render(){
@@ -211,11 +226,12 @@
         }
 
         class TableRow {
-            constructor(app, row, n){
+            constructor(c, row, n){
+                
                 this.name = row.name;
                 this.sum = row.sum;
                 this.className = n % 2 ? "odd" :"even";
-                return bind(this, app);
+                return bind(c, this);
             }
 
             render(){
@@ -228,8 +244,8 @@
             }
         }
 
-        const data = window.data = new App(model, document.getElementsByTagName('main')[0]);
-        data.render();
+        window.x = new Component(Bootstrap, document.getElementsByTagName('main')[0], model);
+
     }();
 
     </script>
