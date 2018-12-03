@@ -1,0 +1,36 @@
+{
+    "name": "grunt-browserify-babel",
+    "version": "1.0.0",
+    "description": "ES6 modules with Browserify and Grunt",
+    "main": "index.js",
+    "scripts": {
+        "watch": "grunt watch",
+        "prod": "grunt build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "ES6",
+        "modules",
+        "browserify",
+        "grunt"
+    ],
+    "author": "Filipe Ferreira",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.1.6",
+        "@babel/preset-env": "^7.1.6",
+        "babelify": "^10.0.0",
+        "browserify": "^16.2.3",
+        "factor-bundle": "^2.5.0",
+        "grunt": "^1.0.3",
+        "grunt-available-tasks": "^0.6.3",
+        "grunt-browserify": "^5.3.0",
+        "grunt-cli": "^1.3.2",
+        "grunt-contrib-jshint": "^2.0.0",
+        "grunt-contrib-uglify": "^4.0.0",
+        "grunt-contrib-watch": "^1.1.0",
+        "grunt-newer": "^1.3.0",
+        "jshint-stylish": "^2.2.1",
+        "minifyify": "^7.3.5"
+    }
+}

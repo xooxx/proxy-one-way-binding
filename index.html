@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>MyMonolith | Dashboard</title>
+    <base href=".">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Business Intelligence Platform" name="description">
+    <meta content="" name="author">
+    <link href="app/src/css/vendor.core.bundle.10e251bc337de9a499689c0ed84b7fd8.css"
+          rel="stylesheet">
+    <link href="app/src/css/vendor.template.bundle.e64735ff3a0bd18172b08ade58af20a9.css"
+          rel="stylesheet">
+    <link href="app/src/css/libraries.bundle.39fbaefe92dee93ddca402a9c75ee659.css" rel="stylesheet">
+    <link href="app/src/css/libraries@smartdigit.bundle.4758ff07830c3c837a4720e5ced627fd.css"
+          rel="stylesheet">
+    <link href="app/src/css/main.bundle.b6ca25764599fff1a1c0b7f8e38717cb.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://my.monolith-gruppe.com/data/img/favicon.ico">
+
+</head>
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md pace-running pace-done pace-done"
+      style="">
+<div class="pace pace-inactive pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99"
+         style="transform: translate3d(100%, 0px, 0px);">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
+<div class="page-wrapper">
+    <div class="page-header navbar navbar-fixed-top">
+        <div class="page-header-inner ">
+            <div class="page-logo"><a href="https://my.monolith-gruppe.com/"><img
+                    src="app/src/img/logo_squared.png" alt="logo" class="logo-default"> </a>
+                <div class="menu-toggler sidebar-toggler"><span></span></div>
+            </div>
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+               data-target=".navbar-collapse"> <span></span> </a>
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown dropdown-quick "><a href="javascript:;" class="dropdown-toggle"
+                                                            data-toggle="dropdown" data-hover="dropdown"
+                                                            data-close-others="true"> <i class="icon-energy"></i> </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li><a href="https://my.monolith-gruppe.com/users/432/tasks/quick/create.modal"
+                                   data-target="#quick_modal" data-toggle="modal" data-width="60%"> <i
+                                    class="fa fa-tasks"></i> Task </a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-extended dropdown-inbox " id="dd_notifications"><a
+                            href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                            data-hover="dropdown" data-close-others="true"><i class="icon-bell"></i><span
+                            class="badge badge-default" style="display: none;"> <span class="counter"></span> </span>
+                    </a>
+                        <ul class="dropdown-menu hold-on-click">
+                            <li class="external"><h3><span class="bold"><span class="counter"></span> pending</span>
+                                notifications</h3><a href="javascript:Component.Widget.Notification.clear();"
+                                                     class="text-warning">Clear all</a></li>
+                            <li>
+                                <div class="slimScrollDiv"
+                                     style="position: relative; overflow: hidden; width: auto; height: 275px;">
+                                    <ul class="dropdown-menu-list scroller"
+                                        style="height: 275px; overflow: hidden; width: auto;"
+                                        data-handle-color="#637283" data-initialized="1"></ul>
+                                    <div class="slimScrollBar"
+                                         style="background: rgb(99, 114, 131); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+                                    <div class="slimScrollRail"
+                                         style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-user " id="support_loading_screenshot" style="display:none;"><a
+                            href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                            data-hover="dropdown" data-close-others="true"><span class="username">Taking screenshot, please wait...</span>
+                        <i class="fa fa-spinner fa-spin"></i> </a></li>
+                    <li class="dropdown dropdown-quick-sidebar-toggler "><a href="javascript:;" class="dropdown-toggle">
+                        <i class="icon-bubbles"></i> <span id="chat-counter" class="badge badge-default"
+                                                           style="display: none;"> <span
+                            class="counter">0</span> </span> </a></li>
+                    <li class="dropdown dropdown-language "><a href="javascript:;" class="dropdown-toggle"
+                                                               data-toggle="dropdown" data-hover="dropdown"
+                                                               data-close-others="true"> <i
+                            class="flag-icon flag-icon-gb"></i> <span class="langname"> EN </span> <i
+                            class="fa fa-angle-down"></i> </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li><a class="pull-left"
+                                   href="">
+                                <i class="flag-icon flag-icon-gb"></i> English </a>
+                                <button onclick=""
+                                        type="button" class="btn green-haze pull-right"><i class="fa fa-unlock"></i>
+                                </button>
+                            </li>
+                            <li><a class="pull-left"
+                                   href="">
+                                <i class="flag-icon flag-icon-pt"></i> Português </a>
+                                <button onclick=""
+                                        type="button" class="btn green-haze pull-right"><i class="fa fa-lock"></i>
+                                </button>
+                            </li>
+                            <li><a class="pull-left"
+                                   href="">
+                                <i class="flag-icon flag-icon-ru"></i> Русский </a>
+                                <button onclick=""
+                                        type="button" class="btn green-haze pull-right"><i class="fa fa-unlock"></i>
+                                </button>
+                            </li>
+                            <li><a class="pull-left"
+                                   href="">
+                                <i class="flag-icon flag-icon-de"></i> Deutsch </a>
+                                <button onclick=""
+                                        type="button" class="btn green-haze pull-right"><i class="fa fa-unlock"></i>
+                                </button>
+                            </li>
+                            <li><a class="pull-left"
+                                   href="">
+                                <i class="flag-icon flag-icon-it"></i> Italian </a>
+                                <button onclick=""
+                                        type="button" class="btn green-haze pull-right"><i class="fa fa-unlock"></i>
+                                </button>
+                            </li>
+                            <li><a class="pull-left"
+                                   href="">
+                                <i class="flag-icon flag-icon-es"></i> Español </a>
+                                <button onclick=""
+                                        type="button" class="btn green-haze pull-right"><i class="fa fa-unlock"></i>
+                                </button>
+                            </li>
+                            <li><a class="pull-left"
+                                   href="">
+                                <i class="flag-icon flag-icon-fr"></i> Françoise </a>
+                                <button onclick=""
+                                        type="button" class="btn green-haze pull-right"><i class="fa fa-unlock"></i>
+                                </button>
+                            </li>
+                            <li><a class="pull-left"
+                                   href="">
+                                <i class="flag-icon flag-icon-gr"></i> ελληνικά </a>
+                                <button onclick=""
+                                        type="button" class="btn green-haze pull-right"><i class="fa fa-unlock"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-user "><a href="javascript:void(0);" class="dropdown-toggle"
+                                                           data-toggle="dropdown" data-hover="dropdown"
+                                                           data-close-others="true"> <img alt="" class="img-circle"
+                                                                                          src="app/src/img/70b5431df5b92f92622f306ed06ba5f4-1527587410.png">
+                        <span class="username username-hide-on-mobile">F. Ferreira </span> <i
+                                class="fa fa-angle-down"></i> </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li><a href="javascript:void(0);"> <i
+                                    class="icon-user"></i> My Profile </a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://my.monolith-gruppe.com/support" data-target="#support_modal"
+                                   data-toggle="modal"> <i class="icon-wrench"></i> Support </a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://my.monolith-gruppe.com/lockout"> <i class="icon-lock"></i> Lock Screen
+                            </a></li>
+                            <li><a href="https://my.monolith-gruppe.com/login" class="logout_url"> <i
+                                    class="icon-key"></i> Log Out </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <div class="page-sidebar-wrapper">
+            <div class="page-sidebar navbar-collapse collapse">
+                <ul class="page-sidebar-menu page-header-fixed " data-keep-expanded="false" data-auto-scroll="true"
+                    data-slide-speed="200" style="padding-top: 20px">
+                    <li class="sidebar-toggler-wrapper hide">
+                        <div class="sidebar-toggler"><span></span></div>
+                    </li>
+                    <li class="sidebar-search-wrapper">
+                        <form class="sidebar-search" action="https://my.monolith-gruppe.com/#search" method="POST"><a
+                                href="javascript:;" class="remove"> <i class="icon-close"></i> </a>
+                            <div class="input-group"><input type="text" class="form-control" placeholder="Search"> <span
+                                    class="input-group-btn"> <a href="javascript:;" class="btn submit"> <i
+                                    class="icon-magnifier"></i> </a> </span></div>
+                        </form>
+                    </li>
+                    <li class="nav-item"><a href="https://my.monolith-gruppe.com/activity" data-key="189"
+                                            class="nav-link menu_item ajaxify"><i class="fa fa-connectdevelop"></i>
+                        <span class="title">Activity Stream</span><span class="selected"></span></a></li>
+                    <li class="nav-item active"><a href="https://my.monolith-gruppe.com/dashboard" data-key="1"
+                                                   class="nav-link menu_item ajaxify"><i class="fa fa-tachometer"></i>
+                        <span class="title">Dashboard</span></a></li>
+                    <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_tasks" data-key="2"
+                                            class="nav-link menu_item ajaxify"><i class="fa fa-tasks"></i> <span
+                            class="title">Tasks</span></a></li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-cogs"></i> <span class="title">CRM</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_crm/item" data-key="195"
+                                                    class="nav-link menu_item ajaxify"><span
+                                    class="title">002 ITEMS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_crm/entities"
+                                                    data-key="196" class="nav-link menu_item ajaxify"><span
+                                    class="title">003 CUSTOMERS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_crm/lead" data-key="200"
+                                                    class="nav-link menu_item ajaxify"><span
+                                    class="title">005 Leads</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_crm/callcenter"
+                                                    data-key="214" class="nav-link menu_item ajaxify"><span
+                                    class="title">007 CALLCENTER</span></a></li>
+                            <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><span
+                                    class="title">006 SETTINGS</span><span class="arrow"></span></a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                                            class="fa fa-sliders"></i> <span class="title">Generic</span><span
+                                            class="arrow"></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/generic/socials"
+                                                    data-key="236" class="nav-link menu_item ajaxify"><span
+                                                    class="title">Socials</span></a></li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/generic/warehouses"
+                                                    data-key="244" class="nav-link menu_item ajaxify"><span
+                                                    class="title">Warehouses</span></a></li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/generic/taxes"
+                                                    data-key="245" class="nav-link menu_item ajaxify"><span
+                                                    class="title">Taxes</span></a></li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/generic/payments"
+                                                    data-key="255" class="nav-link menu_item ajaxify"><span
+                                                    class="title">Payment Methods</span></a></li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/generic/currency_rates"
+                                                    data-key="147" class="nav-link menu_item ajaxify"><span
+                                                    class="title">Currencies rates</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                                            class="fa fa-shopping-cart"></i> <span class="title">Items</span><span
+                                            class="arrow"></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item"><a href="javascript:;"
+                                                                    class="menu_item nav-link nav-toggle"><i
+                                                    class="fa fa-sliders"></i> <span class="title">Generic</span><span
+                                                    class="arrow"></span></a>
+                                                <ul class="sub-menu">
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/items/generic/categories"
+                                                            data-key="229" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Categories</span></a></li>
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/items/generic/types"
+                                                            data-key="230" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Types</span></a></li>
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/items/generic/brands"
+                                                            data-key="231" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Brands</span></a></li>
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/items/generic/extrafields"
+                                                            data-key="232" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Extrafields</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/items/pricelines"
+                                                    data-key="242" class="nav-link menu_item ajaxify"><i
+                                                    class="fa fa-bookmark-o"></i> <span class="title">Pricelines</span></a>
+                                            </li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/items/families"
+                                                    data-key="243" class="nav-link menu_item ajaxify"><i
+                                                    class="fa fa-map-signs"></i> <span class="title">Families</span></a>
+                                            </li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/items/generic/extrafields"
+                                                    data-key="232" class="nav-link menu_item ajaxify"><span
+                                                    class="title">Extrafields</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                                            class="fa fa-black-tie"></i> <span class="title">Entities</span><span
+                                            class="arrow"></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item"><a href="javascript:;"
+                                                                    class="menu_item nav-link nav-toggle"><i
+                                                    class="fa fa-sliders"></i> <span class="title">Generic</span><span
+                                                    class="arrow"></span></a>
+                                                <ul class="sub-menu">
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/entities/generic/categories"
+                                                            data-key="233" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Categories</span></a></li>
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/entities/generic/types"
+                                                            data-key="234" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Types</span></a></li>
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/entities/generic/extrafields"
+                                                            data-key="235" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Extrafields</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/entities/groups"
+                                                    data-key="247" class="nav-link menu_item ajaxify"><i
+                                                    class="fa fa-cubes"></i> <span class="title">Groups</span></a></li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/entities/extrafields"
+                                                    data-key="248" class="nav-link menu_item ajaxify"><i
+                                                    class="fa fa-gears"></i> <span class="title">Extrafields</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                                            class="fa fa-address-book-o"></i> <span class="title">Contacts</span><span
+                                            class="arrow"></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item"><a href="javascript:;"
+                                                                    class="menu_item nav-link nav-toggle"><i
+                                                    class="fa fa-sliders"></i> <span class="title">Generic</span><span
+                                                    class="arrow"></span></a>
+                                                <ul class="sub-menu">
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/contacts/generic/types"
+                                                            data-key="237" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Types</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/contacts/groups"
+                                                    data-key="249" class="nav-link menu_item ajaxify"><i
+                                                    class="fa fa-cubes"></i> <span class="title">Groups</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                                            class="fa fa-address-card-o"></i> <span class="title">Addresses</span><span
+                                            class="arrow"></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item"><a href="javascript:;"
+                                                                    class="menu_item nav-link nav-toggle"><i
+                                                    class="fa fa-sliders"></i> <span class="title">Generic</span><span
+                                                    class="arrow"></span></a>
+                                                <ul class="sub-menu">
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/addresses/generic/types"
+                                                            data-key="238" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Types</span></a></li>
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/addresses/generic/cities"
+                                                            data-key="239" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Cities</span></a></li>
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/addresses/generic/states"
+                                                            data-key="240" class="nav-link menu_item ajaxify"><span
+                                                            class="title">States</span></a></li>
+                                                    <li class="nav-item"><a
+                                                            href="https://my.monolith-gruppe.com/module_crm/settings/addresses/generic/countries"
+                                                            data-key="241" class="nav-link menu_item ajaxify"><span
+                                                            class="title">Countries</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/addresses/groups"
+                                                    data-key="250" class="nav-link menu_item ajaxify"><i
+                                                    class="fa fa-cubes"></i> <span class="title">Groups</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                                            class="fa fa-phone"></i> <span class="title">Callcenter</span><span
+                                            class="arrow"></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/callcenter/criterias"
+                                                    data-key="251" class="nav-link menu_item ajaxify"><span
+                                                    class="title">Criterias</span></a></li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/callcenter/visualizer"
+                                                    data-key="252" class="nav-link menu_item ajaxify"><span
+                                                    class="title">Rule Visualiser</span></a></li>
+                                            <li class="nav-item"><a
+                                                    href="https://my.monolith-gruppe.com/module_crm/settings/callcenter/voip/user/edit"
+                                                    data-key="253" class="nav-link menu_item ajaxify"><span
+                                                    class="title">Voip</span></a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-book"></i> <span class="title">Knowledge Base</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/wiki/pages" data-key="162"
+                                                    class="nav-link menu_item ajaxify"><span class="title">001 TRAINING CENTER</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-sitemap"></i> <span class="title">Management</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_management/organigram"
+                                                    data-key="25" class="nav-link menu_item ajaxify"><span
+                                    class="title">001 ORGANIGRAM</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-inbox"></i> <span class="title">Office</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_office/index.php?pg=labels"
+                                    data-key="29" class="nav-link menu_item ajaxify"><span
+                                    class="title">001 LABELS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_office/letters/list"
+                                                    data-key="113" class="nav-link menu_item ajaxify"><span
+                                    class="title">002 LETTERS</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_office/index.php?pg=meetings"
+                                    data-key="117" class="nav-link menu_item ajaxify"><span
+                                    class="title">004 MEETINGS</span></a></li>
+                            <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><span
+                                    class="title">005 REQUIREMENTS</span><span class="arrow"></span></a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item"><a
+                                            href="https://my.monolith-gruppe.com/module_office/requirement/request"
+                                            data-key="184" class="nav-link menu_item ajaxify"><i
+                                            class="fa fa-files-o"></i> <span class="title">REQUESTS</span></a></li>
+                                    <li class="nav-item"><a
+                                            href="https://my.monolith-gruppe.com/module_office/requirement/report/create"
+                                            data-key="183" class="nav-link menu_item ajaxify"><i
+                                            class="fa fa-bar-chart"></i> <span class="title">REPORTS</span></a></li>
+                                    <li class="nav-item"><a
+                                            href="https://my.monolith-gruppe.com/module_office/requirement/template"
+                                            data-key="182" class="nav-link menu_item ajaxify"><i
+                                            class="fa fa-pencil-square-o"></i> <span class="title">TEMPLATES</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-folder"></i> <span class="title">Database</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/supplier/gespos/filter"
+                                    data-key="167" class="nav-link menu_item ajaxify"><span class="title">001 SUPPLIERS - GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/supplier/khk/filter"
+                                    data-key="164" class="nav-link menu_item ajaxify"><span class="title">001 SUPPLIERS - KHK</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/customer/gespos/filter"
+                                    data-key="168" class="nav-link menu_item ajaxify"><span class="title">002 CUSTOMERS - GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/customer/khk/filter"
+                                    data-key="165" class="nav-link menu_item ajaxify"><span class="title">002 CUSTOMERS - KHK</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/product/gespos/filter"
+                                    data-key="169" class="nav-link menu_item ajaxify"><span class="title">003 PRODUCTS - GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/product/khk/filter"
+                                    data-key="166" class="nav-link menu_item ajaxify"><span class="title">003 PRODUCTS - KHK</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/clients/locations"
+                                    data-key="31" class="nav-link menu_item ajaxify"><span class="title">003 CLIENT LOCATIONS</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/selling_price/gespos/filter"
+                                    data-key="170" class="nav-link menu_item ajaxify"><span class="title">004 SELING PRICES - GESPOS</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/selling_price/khk/filter"
+                                    data-key="171" class="nav-link menu_item ajaxify"><span class="title">004 SELING PRICES - KHK</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/report/pr_supplier_item_khk"
+                                    data-key="180" class="nav-link menu_item ajaxify"><span class="title">005 PR SUPPLIER/ITEMS KHK</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/report/pr_item_packing_khk"
+                                    data-key="181" class="nav-link menu_item ajaxify"><span class="title">005 PR ITEMS/PACKAGING KHK</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/report/pr_qty_costs_khk"
+                                    data-key="187" class="nav-link menu_item ajaxify"><span class="title">005 PR QTY AND COSTS</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_database/khk/purchase_costs/filter"
+                                    data-key="258" class="nav-link menu_item ajaxify"><span class="title">007 PURCHASE COSTS KHK</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-barcode"></i> <span class="title">Sales</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_sales/product_list14m/filter"
+                                    data-key="39" class="nav-link menu_item ajaxify"><span class="title">002 I-SALES QTY 14m - GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_sales/product_margin/gespos/filter"
+                                    data-key="172" class="nav-link menu_item ajaxify"><span class="title">002 I-SALES 1m - GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_sales/product_margin/khk/filter"
+                                    data-key="173" class="nav-link menu_item ajaxify"><span class="title">002 I-SALES 1m - KHK</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_sales/report/product_margin14m_gespos"
+                                    data-key="174" class="nav-link menu_item ajaxify"><span class="title">002 I-SALES 14m - GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_sales/product_margin14m/khk/filter"
+                                    data-key="175" class="nav-link menu_item ajaxify"><span class="title">002 I-SALES 14m - KHK</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_sales/credit_notes/filter" data-key="43"
+                                    class="nav-link menu_item ajaxify"><span class="title">004 CREDIT NOTES GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_sales/discounts/filter"
+                                                    data-key="44" class="nav-link menu_item ajaxify"><span
+                                    class="title">004 DISCOUNTS GESP</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_sales/customer_buys/filter"
+                                    data-key="129" class="nav-link menu_item ajaxify"><span class="title">007 CL-SALES 14m - GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_sales/report/customer_buys_khk"
+                                    data-key="185" class="nav-link menu_item ajaxify"><span class="title">007 CL-SALES 14m - KHK</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-download"></i> <span class="title">Purchase</span><span
+                            class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_purchase/order_list/filter"
+                                    data-key="47" class="nav-link menu_item ajaxify"><span
+                                    class="title">001 ORDER LIST</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_purchase/stock_alert/filter"
+                                    data-key="48" class="nav-link menu_item ajaxify"><span
+                                    class="title">002 STOCK ALERT</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_purchase/open_order/filter"
+                                    data-key="158" class="nav-link menu_item ajaxify"><span class="title">004 OPEN ORDERS</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_purchase/ordered_product/filter"
+                                    data-key="159" class="nav-link menu_item ajaxify"><span class="title">005 ORDERED PRODUCTS</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_purchase/monolith_edi/filter"
+                                    data-key="132" class="nav-link menu_item ajaxify"><span class="title">004 MONOLITH EDI</span></a>
+                            </li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_documents/purchase"
+                                                    data-key="256" class="nav-link menu_item ajaxify"><span
+                                    class="title">006 PURCHASE DOCS</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-briefcase"></i> <span class="title">Accounting</span><span
+                            class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_accounting/fixed_assets"
+                                                    data-key="50" class="nav-link menu_item ajaxify"><span
+                                    class="title">001 FIXED ASSETS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_accounting/bank"
+                                                    data-key="60" class="nav-link menu_item ajaxify"><span
+                                    class="title">002 BANK FORWARD</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_accounting/responsibility_center/filter"
+                                    data-key="63" class="nav-link menu_item ajaxify"><span class="title">003 COSTS &amp; SALES CENTER 12m</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_accounting/balance/filter" data-key="54"
+                                    class="nav-link menu_item ajaxify"><span class="title">005 BALANCE</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_accounting/debts"
+                                                    data-key="56" class="nav-link menu_item ajaxify"><span
+                                    class="title">007 DEPTS</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_accounting/goods_without_invoices"
+                                    data-key="57" class="nav-link menu_item ajaxify"><span class="title">008 GOODS WITHOUT INVOICES</span></a>
+                            </li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_accounting/intrastat/uk"
+                                                    data-key="68" class="nav-link menu_item ajaxify"><span
+                                    class="title">009 INTRASTAT UK</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_accounting/intrastat/pt"
+                                                    data-key="69" class="nav-link menu_item ajaxify"><span
+                                    class="title">009 INTRASTAT PT</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_accounting/cheque"
+                                                    data-key="192" class="nav-link menu_item ajaxify"><span
+                                    class="title">010 MCY CHECKS</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-random"></i> <span class="title">Warehouse</span><span
+                            class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_warehouse/stock"
+                                                    data-key="70" class="nav-link menu_item ajaxify"><span
+                                    class="title">001 ACTUAL STOCK</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_warehouse/last_purchase/filter"
+                                    data-key="157" class="nav-link menu_item ajaxify"><span class="title">002 LAST PURCHASE PRICES</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_warehouse/report/stock_exit_gespos"
+                                    data-key="178" class="nav-link menu_item ajaxify"><span class="title">003 STOCK EXITS 1m - GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_warehouse/report/stock_exit_gespos_14m"
+                                    data-key="179" class="nav-link menu_item ajaxify"><span class="title">003 STOCK EXITS 14m - GESP</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_warehouse/report/stock_exit_khk"
+                                    data-key="176" class="nav-link menu_item ajaxify"><span class="title">003 STOCK EXITS 1m - KHK</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_warehouse/report/stock_exit_khk_14m"
+                                    data-key="177" class="nav-link menu_item ajaxify"><span class="title">003 STOCK EXIT 14M - KHK</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-group"></i> <span class="title">Staff</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_staff/holidays"
+                                                    data-key="72" class="nav-link menu_item ajaxify"><span
+                                    class="title">002 HOLIDAYS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_staff/commision/uk"
+                                                    data-key="77" class="nav-link menu_item ajaxify"><span
+                                    class="title">006 COMMISION UK</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-shopping-cart"></i> <span class="title">Shops</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/index.php?pg=undefined"
+                                                    data-key="90" class="nav-link menu_item ajaxify"><span
+                                    class="title">001 REVIEW</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/index.php?pg=undefined"
+                                                    data-key="91" class="nav-link menu_item ajaxify"><span
+                                    class="title">001 REVIEW REPORTS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_shop/daily_cash/record"
+                                                    data-key="92" class="nav-link menu_item ajaxify"><span
+                                    class="title">002 DAILY CASH</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/index.php?pg=undefined"
+                                                    data-key="93" class="nav-link menu_item ajaxify"><span
+                                    class="title">003 ORDERS SHAMPO</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_shop/sales_attendant/filter"
+                                    data-key="36" class="nav-link menu_item ajaxify"><span class="title">001 SALES/CUSTOMER/AVERAGE</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_shop/shop_history/filter" data-key="37"
+                                    class="nav-link menu_item ajaxify"><span class="title">001 CLIENTHISTORY</span></a>
+                            </li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_shop/shop_unsold/filter"
+                                                    data-key="38" class="nav-link menu_item ajaxify"><span
+                                    class="title">001 NOT SALED</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_shops/muk/main"
+                                                    data-key="191" class="nav-link menu_item ajaxify"><span
+                                    class="title">003 UK SHOPS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_shop/worked_hours"
+                                                    data-key="199" class="nav-link menu_item ajaxify"><span
+                                    class="title">004 WORKED HOURS</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_shop/customers/points/filter"
+                                    data-key="212" class="nav-link menu_item ajaxify"><span class="title">005 CUSTOMER POINTS</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-video-camera"></i> <span class="title">Publicity</span><span
+                            class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_publicity/index.php?pg=flyers"
+                                    data-key="126" class="nav-link menu_item ajaxify"><span class="title">004 MINI CATALOG</span></a>
+                            </li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_publicity/index.php?pg=catalog"
+                                    data-key="127" class="nav-link menu_item ajaxify"><span
+                                    class="title">005 CATALOG</span></a></li>
+                            <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><span
+                                    class="title">002 SMS</span><span class="arrow"></span></a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item"><a
+                                            href="https://my.monolith-gruppe.com/module_publicity/sms/send"
+                                            data-key="204" class="nav-link menu_item ajaxify"><span
+                                            class="title">Send</span></a></li>
+                                    <li class="nav-item"><a
+                                            href="https://my.monolith-gruppe.com/module_publicity/sms/history"
+                                            data-key="202" class="nav-link menu_item ajaxify"><span class="title">History</span></a>
+                                    </li>
+                                    <li class="nav-item"><a
+                                            href="https://my.monolith-gruppe.com/module_publicity/sms/template"
+                                            data-key="203" class="nav-link menu_item ajaxify"><span class="title">Templates</span></a>
+                                    </li>
+                                    <li class="nav-item"><a
+                                            href="https://my.monolith-gruppe.com/module_publicity/sms/blacklist"
+                                            data-key="205" class="nav-link menu_item ajaxify"><span class="title">Blacklist</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-truck"></i> <span class="title">Suppliers</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_supplier/product_sales/filter"
+                                    data-key="156" class="nav-link menu_item ajaxify"><span class="title">001 PRODUCT SALES STATISTIC</span></a>
+                            </li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_supplier/logistic"
+                                                    data-key="198" class="nav-link menu_item ajaxify"><span
+                                    class="title">006 LOGISTIC</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:;" class="menu_item nav-link nav-toggle"><i
+                            class="fa fa-cogs"></i> <span class="title">Settings</span><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/app/manager" data-key="261"
+                                                    class="nav-link menu_item ajaxify"><i class="icon icon-diamond"></i>
+                                <span class="title">Platform</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_settings/companies"
+                                                    data-key="99" class="nav-link menu_item ajaxify"><span
+                                    class="title">001 COMPANIES</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/users" data-key="100"
+                                                    class="nav-link menu_item ajaxify"><span
+                                    class="title">002 USERS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_settings/departments"
+                                                    data-key="101" class="nav-link menu_item ajaxify"><span
+                                    class="title">003 DEPARTAMENTS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_settings/filials"
+                                                    data-key="102" class="nav-link menu_item ajaxify"><span
+                                    class="title">004 FILIALS</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/permissions" data-key="106"
+                                                    class="nav-link menu_item ajaxify"><span class="title">006 PERMISSIONS</span></a>
+                            </li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/module_settings/translations"
+                                                    data-key="119" class="nav-link menu_item ajaxify"><span
+                                    class="title">008 TRANSLATIONS</span></a></li>
+                            <li class="nav-item"><a
+                                    href="https://my.monolith-gruppe.com/module_settings/abusive/content" data-key="163"
+                                    class="nav-link menu_item ajaxify"><span
+                                    class="title">010 Abusive Content</span></a></li>
+                            <li class="nav-item"><a href="https://my.monolith-gruppe.com/invites" data-key="188"
+                                                    class="nav-link menu_item ajaxify"><span
+                                    class="title">011 INVITES</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-content-wrapper">
+            <div class="page-content" style="min-height: 1187px;">
+                <div class="page-content-body">
+                    <main></main>
+                    <script src="app/dist/bundle.js"></script>
+                    <div class="gridster ready ui-droppable"></div>
+                </div>
+                <span class="gs-resize-handle gs-resize-handle-both"></span></div>
+            <span class="gs-resize-handle gs-resize-handle-both"></span></div>
+    </div>
+</div>
+
+<div class="page-quick-sidebar-wrapper">
+    <div id="f-cover" style="width: 0; height: 0; z-index: 0; position: absolute;"></div>
+    <div id="l-f" style=" height: 70vh; width: 10px; position: absolute; right: 366px; cursor: w-resize; z-index: 2; "
+         class="ui-draggable ui-draggable-handle"></div>
+    <div id="b-f"
+         style=" top: 70vh; width: 366px; position: absolute; height: 10px; right: 0; cursor: s-resize; z-index: 2; "
+         class="ui-draggable ui-draggable-handle"></div>
+    <div id="l-b-c-f"
+         style=" top: 70vh; right: 366px; position: absolute; width: 15px; height: 15px; margin-top: -5px; cursor: sw-resize; z-index: 2; "
+         class="ui-draggable ui-draggable-handle"></div>
+</div>
+
+<nav class="quick-nav" style="display: none;"><a class="quick-nav-trigger" href="javascript:void(0);"> <span
+        aria-hidden="true"></span> </a>
+    <ul>
+        <li class="" style="display: none;"><a href="javascript:void(0);" class=""> <span>Example</span> <i
+                class="icon"></i> </a></li>
+    </ul>
+    <span aria-hidden="true" class="quick-nav-bg"></span></nav>
+<div class="quick-nav-overlay"></div>
+<div class="modal fade" id="support_modal" role="basic" aria-hidden="true">
+    <div class="page-loading page-loading-boxed"><img src="app/src/img/input-spinner.gif" alt=""
+                                                      class="loading"><span>&nbsp;&nbsp;Loading... </span></div>
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
+    </div>
+</div>
+<div class="modal" id="quick_modal" role="dialog" aria-hidden="true">
+    <div class="page-loading page-loading-boxed"><img src="app/src/img/input-spinner.gif" alt=""
+                                                      class="loading"> <span>Loading... </span></div>
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
+    </div>
+</div>
+<div class="page-footer">
+    <div class="page-footer-inner">2018 MyMonolith © - <a href="http://www.nikicloud.com/">NikiCloud ®</a> - <a
+            href="https://my.monolith-gruppe.com/legal/privacy_policy">Privacy Policy</a></div>
+    <div class="scroll-to-top"><i class="icon-arrow-up"></i></div>
+</div>
+
+</body>
+</html>
